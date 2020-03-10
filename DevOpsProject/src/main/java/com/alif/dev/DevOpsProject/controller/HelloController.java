@@ -19,6 +19,12 @@ public class HelloController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/print", method = RequestMethod.GET)
+	public void printMsg() {
+		logger.info("=================GET Request for printMsg method=================");
+		System.out.println("Here is the print message");
+	}
+	
 	@RequestMapping(value="sayHello.htm", method = RequestMethod.POST)
 	public String sayHello(@RequestParam(value="name") String name, Model model) {
 		logger.info("=================POST Request for sayHello method=================");
