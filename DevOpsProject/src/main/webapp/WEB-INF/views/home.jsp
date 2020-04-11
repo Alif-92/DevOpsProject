@@ -5,8 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
+<link type="text/css" rel="stylesheet" href="./resources/css/home.css">
 </head>
 <body>
-	<center>Welcome to homepage ${name}</center>
+	<h1>Welcome to homepage ${name}</h1>
 </body>
 </html>

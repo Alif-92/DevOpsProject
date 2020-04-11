@@ -1,7 +1,45 @@
-.from{
+div.form{
+	width: 50%;
+	margin: 20px auto;
 	background-color: #cdcfdc;
 	width: 80%;
 	height: 50%;
 	border-radius: 10px;
 	padding: 20px;
+}
+body{
+	background-color: #b3889d;
+}
+
+.form h1 {
+	width: 55%;
+	margin: 0 auto;
+}
+
+.form table tr th {
+    text-align: left;
+    padding: 10px 0px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.form .lbl {
+	font-weight: 600;
+	margin-right: 5px;
+}
+
+.form input {
+	height: 30px;
+}
+
+.form .sbBtn {
+	width: 100px;
+    background: #10b3bb;
+    border: none;
+    border-radius: 5px;
+}
+
+.form .inpText{
+	border: none;
+    border-radius: 5px;
 }

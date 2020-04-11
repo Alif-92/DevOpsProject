@@ -4,23 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="/resources/css/index.css">
-<script type="text/javascript" src="/resources/js/index.js"></script>
+<link type="text/css" rel="stylesheet" href="./resources/css/index.css">
+<script type="text/javascript" src="./resources/js/index.js"></script>
 <title>DevOps Practice</title>
 </head>
-<body>
-	<h1>Welcome to DevOps World</h1>
+<body>	
 	<div class="form">
-		<form action="sayHello.htm" method="post" onsubmit="validate();">
-			<table>
-				<thead>Provide below details</thead>
+	<h1>Welcome to DevOps World</h1>
+		<form action="sayHello.htm" method="post" onsubmit="return validate();">
+			<table>				
 				<tbody>
+				<tr>
+					<th colspan="2">Provide below details</th>
+				</tr>
 					<tr>
-						<td>Enter your name:</td>
-						<td><input type="text" name="name" id="name" /></td>
+						<td><span class="lbl">Enter your name:</span></td>
+						<td><input class="inpText" type="text" name="name" id="name" /></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="Submit" /></td>
+						<td></td>
+						<td><input class="sbBtn" type="submit" value="Submit" /></td>
 					</tr>
 				</tbody>
 			</table>
