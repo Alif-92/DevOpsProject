@@ -1,14 +1,12 @@
 package com.alif.dev.DevOpsProject.controller;
 
-import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Enumeration;
-import java.util.TimeZone;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,20 +15,15 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.alif.dev.DevOpsProject.model.User;
 import com.alif.dev.DevOpsProject.util.PasswordEncriptor;
@@ -69,13 +62,15 @@ private static SimpleDateFormat FORMATTER = new SimpleDateFormat("MM/dd/yyyy 'at
 			if(loggedInUser == null) {
 				model.addAttribute("msg", "Error, Userid and/or Password wrong!");
 			}else {
-				TimeZone istTimeZone = TimeZone.getTimeZone("Asia/Kolkata");
-				Calendar today = Calendar.getInstance(istTimeZone);
-				//System.out.println(FORMATTER.format(today.getTime()));
-				//System.out.println(FORMATTER.format(today.getTime()).split(" ")[2].split(":")[0]);
-				//int timeOfDay = today.get(Calendar.HOUR_OF_DAY);
-				//System.out.println(timeOfDay);
-				int time = Integer.parseInt(FORMATTER.format(today.getTime()).split(" ")[2].split(":")[0]);
+				LocalDateTime todayIndia = LocalDateTime.now(ZoneId.of("Asia/Kolkata"));
+				System.out.println("Current Date in IST="+todayIndia);
+				//System.out.println(todayIndia.getHour());
+				
+				LocalDateTime todayUs = LocalDateTime.now(ZoneId.of("US/Central"));
+				System.out.println("Current Date in UST="+todayUs);
+				//System.out.println(todayUs.getHour());
+				
+				int time = todayIndia.getHour();
 				String greetings = "";
 				if(time >=0 && time < 12) {
 					greetings = " Good Morning";
