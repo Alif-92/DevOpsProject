@@ -49,7 +49,7 @@ private static SimpleDateFormat FORMATTER = new SimpleDateFormat("MM/dd/yyyy 'at
 	public String doAppLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@ModelAttribute(value="userDetails") User user, Model model) {
 		logger.info("=================POST Request for doAppLogin method=================");
-		String getUserSQL = "SELECT * FROM devopsdb.user_details where USER_NAME =? and USER_PASSWORD =?";
+		String getUserSQL = "SELECT * FROM DEVOPSDB.USER_DETAILS where USER_NAME =? and USER_PASSWORD =?";
 		
 		try {
 			user.setUserPassword(PasswordEncriptor.getSHA256(user.getUserPassword()));
